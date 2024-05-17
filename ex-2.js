@@ -1,40 +1,45 @@
-//Exercise #2: At Least Five Function
-
-function atLeastFive(array, operation) {
-  // Start coding here
-  let passed = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] >= 70) {
-      passed++;
-    } else {
-      ("ไม่ผ่านเกณฑ์ ❌");
-    }
-    array[i] = operation(array[i]);
-  }
-  return passed >= 5;
-}
-
 const studentScoresRoom1 = [90, 40, 67, 80, 100, 15, 86, 12, 99, 67];
 const studentScoresRoom2 = [78, 98, 23, 15, 40, 12, 40, 67, 80, 100];
 const studentScoresRoom3 = [67, 80, 100, 15, 12, 40, 67, 80, 100, 67];
 
-// Using `atLeastFive` function here
-let scoreRoom1Result = atLeastFive(studentScoresRoom1, function (result) {
-  return result;
-});
-let scoreRoom2Result = atLeastFive(studentScoresRoom2, function (result) {
-  return result;
-});
-let scoreRoom3Result = atLeastFive(studentScoresRoom3, function (result) {
-  return result;
-});
+// 1.สร้างตัวแปร สำหรับการนับ
+// 2.สร้างลูปในการนับ
+// 3.ลูปเริ่มนับจากตัวแรก ไปจนถึงตัวสุดท้าย
+// 4.เช็คค่าในรอบนั้นๆ ว่ามากกว่า 70 ไหม
+// 5.ถ้ามากกว่า 70 ก็ให้ตัวนับ +1
+// 6. วนไปเรื่อยๆ จนหมด Array
+// 7.เช็คว่า ตัวนับ ห้องนั้นๆ ผ่านเกณฑ์ไหม (ต้องมากกว่า 5 คน)
 
-console.log(
-  `นักเรียนห้องที่ 1 ${scoreRoom1Result ? "ผ่านเกณฑ์ ✅" : "ไม่ผ่านเกณฑ์ ❌"}`
-);
-console.log(
-  `นักเรียนห้องที่ 2 ${scoreRoom2Result ? "ผ่านเกณฑ์ ✅" : "ไม่ผ่านเกณฑ์ ❌"}`
-);
-console.log(
-  `นักเรียนห้องที่ 3 ${scoreRoom3Result ? "ผ่านเกณฑ์ ✅" : "ไม่ผ่านเกณฑ์ ❌"}`
-);
+let countRoom1 = 0;
+let countRoom2 = 0;
+let countRoom3 = 0;
+let order = 0;
+// function thank (name) {
+//   return "Thank you,"+ name
+// }
+
+// function message (callbackOperation,name) {
+//   return callbackOperation(name)
+// }
+
+function checkScore(passScore, order) {
+  if (passScore >= 5) {
+    console.log(`นักเรียนห้องที่ ${order} ผ่านเกณฑ์ ✅`);
+  } else if (passScore < 5) {
+    console.log(`นักเรียนห้องที่ ${order} ไม่ผ่านเกณฑ์ ❌`);
+  }
+}
+
+function countStudent(number, room, callback) {
+  for (let i = 0; i < room.length; i++) {
+    if (room[i] > 70) {
+      number = number + 1;
+    }
+  }
+  order = order + 1;
+  callback(number, order);
+}
+
+countStudent(countRoom1, studentScoresRoom1, checkScore);
+countStudent(countRoom2, studentScoresRoom2, checkScore);
+countStudent(countRoom3, studentScoresRoom3, checkScore);
