@@ -5,10 +5,7 @@ function atLeastFive(array, operation) {
   let passed = 0;
   for (let i = 0; i < array.length; i++) {
     if (array[i] >= 70) {
-      console.log("ผ่านเกณฑ์ ✅")
       passed++
-    } else {
-      "ไม่ผ่านเกณฑ์ ❌"
     }
     array[i] = operation(array[i])
   }
@@ -20,15 +17,10 @@ const studentScoresRoom2 = [78, 98, 23, 15, 40, 12, 40, 67, 80, 100];
 const studentScoresRoom3 = [67, 80, 100, 15, 12, 40, 67, 80, 100, 67];
 
 // Using `atLeastFive` function here
-let scoreRoom1Result = atLeastFive(studentScoresRoom1, function(result){
-  return result;
-})
-let scoreRoom2Result = atLeastFive(studentScoresRoom2, function(result){
-  return result;
-})
-let scoreRoom3Result = atLeastFive(studentScoresRoom3, function(result){
-  return result;
-})
+let scoreRoom1Result = atLeastFive(studentScoresRoom1,)
+let scoreRoom2Result = atLeastFive(studentScoresRoom2,)
+let scoreRoom3Result = atLeastFive(studentScoresRoom3,)
+
 
 console.log(`นักเรียนห้องที่ 1 ${scoreRoom1Result ? 'ผ่านเกณฑ์ ✅' : 'ไม่ผ่านเกณฑ์ ❌'}`)
 console.log(`นักเรียนห้องที่ 2 ${scoreRoom2Result ? 'ผ่านเกณฑ์ ✅' : 'ไม่ผ่านเกณฑ์ ❌'}`)
